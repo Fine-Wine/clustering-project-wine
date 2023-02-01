@@ -4,7 +4,7 @@ import acquire as a
 import new_lib as nl
 
 def prepare_wine(df):
-    df = df.rename(columns={'fixed_acidity': 'fixed_acidity', 'volatile acidity': 'volatile_acidity', 
+    df = df.rename(columns={'fixed acidity': 'fixed_acidity', 'volatile acidity': 'volatile_acidity', 
                        'citric acid': 'citric_acid', 'residual sugar': 'sugar', 
                        'free sulfur dioxide': 'free_sulfer', 'total sulfur dioxide': 'total_sulfer'})
     return df
