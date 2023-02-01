@@ -6,13 +6,14 @@
 
 ### ACQUIRE ###
 
+import pandas as pd
+import os
 
 def get_wine_data():
     '''
     This function reads the wine data from 
     https://data.world/food/wine-quality site into a df.
     '''
-    import pandas as pd
 
     # reads in the red wine data set and assigns the df to a variable
     red_wine_df = pd.read_csv('https://query.data.world/s/bqmesefq3qbzhzjyyjd52u7lfntuzv')
@@ -41,7 +42,6 @@ def acquire_wine():
     https://data.world/food/wine-quality site, writes data to
     a csv file if a local file does not exist, and returns a df.
     '''
-    import os
     
     if os.path.isfile('wine.csv'):
         
