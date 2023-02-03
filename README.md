@@ -66,20 +66,17 @@ Our initial hypothesis is that the alcohol content of wine is one the biggest dr
  
 # Steps to Reproduce
 1) Clone this repo.
-2) Acquire the data from https://data.world/food/wine-quality
-3) Read the data into a .csv and merge/append the data
+2) Acquire the data from https://data.world/food/wine-quality.
+3) Put the data in the file containing the cloned repo.
 4) Run notebook.
  
 # Takeaways and Conclusions
-* Bathrooms, bedrooms, and square footage are the top three features with the strongest correlation.
-    * Square footage has the strongest correlation of all the features.
-* There is a moderate corellation between square footage and property value. 
-    * Further investigation into size of the property and its value is necessary in determing the optimal square footage.
-* There is a slight correlation between the number of bedrooms and property value. It is difficult to determine the maximum number of bedrooms based on the chart.
-* The optimal number of bathrooms to optimize property value appears to be 3.5. However more investigation is required to confirm this finding. Further analysis on optimizing the cost of building a property, location, and comparing that the total value of the propery is neccessary.
-* The optimal square footage is between 1001-2000 square feet. However, there is a moderate negative correlation and the large number of homes within this range could be causing this correlation.
+* The higer the content of alcohol, the more likely that the wine is selected as quality 6 or higher.
+* The middle levels of density produce the most good wines, but a majority of the wines have low to mid levels of density.
+* Although the stats test failed to reject the null, the strong visualtion and clustering sugar with density produces sufficient evidence to include this feature in the model.
+* The lower the acidity levels the more good quality wine that is produced.
  
 # Recommendations
-* The square footage of a house appears to be optimal between 1000-2000 square feet.
-* The number of bedrooms does not apeear to be a significant factor in determining the property value. However, targeted analysis on specific bedroom counts could produce different conclusions.
-* The number of optimal bathrooms appears to be 3.5, although more analysis into the increase in value is necessarry to confirm this conclusion.
+* In order for the quality of the wine to achieve a score of six or higher the alcohol content should be increased versus lower the content level of the alcohol.
+* The acidity level of the wine should be lower to increase the liklihood that the quality of the wine will be six or higher.
+* Sugar in comination with density should be lower to increase the quality level of the wine.
