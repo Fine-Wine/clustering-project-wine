@@ -22,6 +22,7 @@ Our initial hypothesis is that the alcohol content of wine is one the biggest dr
  
 * Prepare data
    * Cleaned up data
+       * The target variable changed from overal quality on a scale of 0-10 to good quality of 6 or better and lower quality wine as 5 or            lower.         
        * Dropped unnecessary columns  
        * Placed underscores back in columns that were missing
        * Dropped duplicate columns
