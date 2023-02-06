@@ -2,6 +2,8 @@ import pandas as pd
 import numpy as np
 import acquire as a
 import new_lib as nl
+import seaborn as sns
+from matplotlib import pyplot as plt
 def eval_result(df, col):
     '''
     This function conducts a spearmanr statistical test
