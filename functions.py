@@ -4,6 +4,9 @@ import acquire as a
 import new_lib as nl
 import seaborn as sns
 from matplotlib import pyplot as plt
+from sklearn.cluster import KMeans
+from sklearn.preprocessing import MinMaxScaler
+
 
 def scale_wine(df, s):
     X_train, y_train, X_val, y_val, X_test, y_test = nl.train_vailidate_test_split(df, 'quality')
@@ -339,7 +342,22 @@ def alcohol_visual(df):
 
 def wine_view(df):
     sns.countplot(data = df, x = 'quality', hue = 'red_or_white', palette = ('beige', 'maroon'))
-    plt.title('Red and White Quality Count')
+    plt.title('Red and White Count by Quality')
     plt.xlabel('Quality')
     plt.ylabel('Quantity')
-    
+
+def clusters(df, f1, f2):
+    seed = 123
+    X = df[[f1, f2]]
+    kmeans = KMeans(n_clusters=3, random_state=seed)
+    kmeans.fit(X)
+    X['cluster'] = kmeans.predict(X)
+    sns.relplot(data= X, x= f1, y= f2, hue= 'cluster', palette = 'deep')
+    plt.show()
+
+def cluster_col(df):
+    mm_scaler = MinMaxScaler()
+    mm_scaler.fit(df)
+    w = pd.DataFrame(mm_scaler.transform(df))
+    w = w.rename(columns = {2: 'volatile_acidity', 11: 'alcohol'})
+    return w
