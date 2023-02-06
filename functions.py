@@ -4,6 +4,12 @@ import acquire as a
 import new_lib as nl
 import seaborn as sns
 from matplotlib import pyplot as plt
+
+def scale_wine(df, s):
+    X_train, y_train, X_val, y_val, X_test, y_test = nl.train_vailidate_test_split(df, 'quality')
+    train_scaled, val_scaled, test_scaled = nl.scale_splits(X_train, X_val, X_test, scaler = s)
+    return X_train, y_train, X_val, y_val, X_test, y_test, train_scaled, val_scaled, test_scaled
+
 def eval_result(df, col):
     '''
     This function conducts a spearmanr statistical test
@@ -169,7 +175,7 @@ def knn_model(X_train, y_train, X_val, y_val):
     y_pred_proba = knn.predict_proba(X_val)
     knn_score_val = knn.score(X_val, y_val)
     
-    return knn_score_train, knn_score_val
+    return round(knn_score_train*100, 2), round(knn_score_val*100, 2)
 
 
 def rf_model(X_train, y_train, X_val, y_val):
@@ -196,7 +202,7 @@ def rf_model(X_train, y_train, X_val, y_val):
     y_pred_proba = rf.predict_proba(X_val)
     rf_score_val = rf.score(X_val, y_val)
     
-    return rf_score_train, rf_score_val
+    return round(rf_score_train*100, 2), round(rf_score_val*100, 2)
 
 
 def dt_model(X_train, y_train, X_val, y_val):
@@ -217,7 +223,7 @@ def dt_model(X_train, y_train, X_val, y_val):
     y_pred_proba = train_tree.predict_proba(X_val)
     dt_score_val = train_tree.score(X_val, y_val)
     
-    return dt_score_train, dt_score_val
+    return round(dt_score_train*100, 2), round(dt_score_val*100, 2)
 
 
 def dt_model_test(X_test, y_test, X_train, y_train):
@@ -240,7 +246,7 @@ def dt_model_test(X_test, y_test, X_train, y_train):
     dt_score_test = train_tree.score(X_test, y_test)
     
     ac = accuracy_score(y_test, y_pred)
-    print('Accuracy is: ',ac)
+    print('Accuracy is: ',round(ac*100,2))
     cm = confusion_matrix(y_test, y_pred)
     cm = cm / cm.sum(axis=1)[:, np.newaxis]
     sns.heatmap(cm,annot=True)
