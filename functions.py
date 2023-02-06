@@ -328,4 +328,10 @@ def alcohol_visual(df):
     plt.xlabel('Alcohol')
     plt.ylabel('Bottles of wine')
     plt.show()
+
+def wine_view():
+    sns.countplot(data = wine, x = 'quality', hue = 'red_or_white', palette = ('beige', 'maroon'))
+    plt.title('Red and White Quality Count')
+    plt.xlabel('Quality')
+    plt.ylabel('Quantity')
     
